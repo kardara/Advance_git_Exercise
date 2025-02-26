@@ -1,5 +1,3 @@
-Here's the refactored README file in markdown format:
-
 ```markdown
 # Part 1: Refining Git History (10 Challenges)
 
