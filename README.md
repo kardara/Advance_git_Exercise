@@ -55,16 +55,41 @@ Here's the refactored README file in markdown format:
    ```bash
    git log
    ```
-let change The commit message "Create another file" needs to be changed to "adiing readme.md".
+   Output: 
+```bash
+   commit 63f5020ebd458eefe0a1fb30caad9b03394874cd (HEAD -> master)
+Author: kardara <abdoulayekardara@gmail.com>
+Date:   Wed Feb 26 12:25:30 2025 +0200
+
+    creating another file
+
+commit 694932e0f805cef912d559db9f7999fd8137a9f2
+Author: kardara <abdoulayekardara@gmail.com>
+Date:   Wed Feb 26 12:15:40 2025 +0200
+
+    adding readme file
+
+commit 266646e1de09f8b814abc9e5ffe5873e550b49ea
+Author: kardara <abdoulayekardara@gmail.com>
+Date:   Wed Feb 26 12:06:18 2025 +0200
+
+    Create another file
+
+commit ef0cac950e61caef08dfa237bd8bc6fb53fc2b9e (origin/master)
+Author: kardara <abdoulayekardara@gmail.com>
+Date:   Wed Feb 26 11:34:39 2025 +0200
+```
+   
+2. **let change The commit message "Create another file" needs to be changed to "adiing readme.md".**
    ```bash
    git rebase -i HEAD~2
    ```
    outPut:
 ```bash
-   pick ef0cac9 adding readme
-pick 266646e Create another file
+pick 694932e adding readme file
+pick 63f5020 creating another file
 
-# Rebase 4fd309f..266646e onto 4fd309f (2 commands)
+# Rebase 266646e..63f5020 onto 266646e (2 commands)
 #
 # Commands:
 # p, pick = use commit
@@ -82,4 +107,65 @@ pick 266646e Create another file
 # However, if you remove everything, the rebase will be aborted.
 #
 # Note that empty commits are commented out
+```
+As I'm usng vim editor, we change the commit from pick to reword, and we do `shift + ':'wq`
+
+output:
+```bash
+creating another file
+
+# Please enter the commit message for your changes. Lines starting
+# with '#' will be ignored, and an empty message aborts the commit.
+#
+# Date:      Wed Feb 26 12:25:30 2025 +0200
+#
+# interactive rebase in progress; onto 266646e
+# Last commands done (2 commands done):
+#    pick 694932e adding readme file
+#    reword 63f5020 creating another file
+# No commands remaining.
+# You are currently editing a commit while rebasing branch 'master' on '266646e'.
+#
+# Changes to be committed:
+#       modified:   README.md
+#
+~
+"~/kardara/advance_git/Advance_git_Exercise/.git/COMMIT_EDITMSG" 17L, 534B
+```
+we change the text, and we save and quite
+
+Output:
+```bash
+ymubutwari@Ubutwaris-iMac Advance_git_Exercise % git rebase -i HEAD~2                 
+[detached HEAD 1a38fe3] adding readme.md
+ Date: Wed Feb 26 12:25:30 2025 +0200
+ 1 file changed, 5 insertions(+), 1 deletion(-)
+Successfully rebased and updated refs/heads/master.
+gymubutwari@Ubutwaris-iMac Advance_git_Exercise % 
+```
+And after redoing `git log`, we get:
+
+```bash
+gymubutwari@Ubutwaris-iMac Advance_git_Exercise % git log             
+commit 1a38fe332b33ba377635d90da7bb43038030c91c (HEAD -> master)
+Author: kardara <abdoulayekardara@gmail.com>
+Date:   Wed Feb 26 12:25:30 2025 +0200
+
+    adding readme.md
+
+commit 694932e0f805cef912d559db9f7999fd8137a9f2
+Author: kardara <abdoulayekardara@gmail.com>
+Date:   Wed Feb 26 12:15:40 2025 +0200
+
+    adding readme file
+
+commit 266646e1de09f8b814abc9e5ffe5873e550b49ea
+Author: kardara <abdoulayekardara@gmail.com>
+Date:   Wed Feb 26 12:06:18 2025 +0200
+
+    Create another file
+
+commit ef0cac950e61caef08dfa237bd8bc6fb53fc2b9e (origin/master)
+Author: kardara <abdoulayekardara@gmail.com>
+Date:   Wed Feb 26 11:34:39 2025 +0200
 ```
