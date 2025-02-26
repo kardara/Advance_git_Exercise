@@ -51,7 +51,11 @@ Here's the refactored README file in markdown format:
    ```
 
 ## Challenge 2: Editing Commit History
-let change The commit message "Create another file" needs to be changed to "Create second file".
+1. **Check the logs to see all the commit**
+   ```bash
+   git log
+   ```
+let change The commit message "Create another file" needs to be changed to "adiing readme.md".
    ```bash
    git rebase -i HEAD~2
    ```
