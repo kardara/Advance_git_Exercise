@@ -49,3 +49,9 @@ Here's the refactored README file in markdown format:
     create mode 100644 test3.md
     create mode 100644 test4.md
    ```
+
+## Challenge 2: Editing Commit History
+let change The commit message "Create another file" needs to be changed to "Create second file".
+   ```bash
+   git rebase -i HEAD~2
+   ```
