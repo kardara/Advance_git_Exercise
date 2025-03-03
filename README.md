@@ -360,6 +360,47 @@ PS C:\Users\USER\Desktop\Git_Exercises\Advance_git_Exercise> git rebase -i HEAD~
 Successfully rebased and updated refs/heads/master.
 PS C:\Users\USER\Desktop\Git_Exercises\Advance_git_Exercise> 
 ```
+### Challenge 6. Dropping a Commit:
+
+We all make mistakes. Imagine needing to completely remove an unwanted commit from your history.
+
+Let's Create a new file named unwanted.txt add some changes and commit it with a message like "Unwanted commit".
+
+Challenge: Use git rebase -i to identify and remove the "Unwanted commit" commit, cleaning up your history. learn more about dropping commits
+```bash
+PS C:\Users\USER\Desktop\Git_Exercises\Advance_git_Exercise> New-Item unwanted.txt -ItemType File
+
+
+    Directory: C:\Users\USER\Desktop\Git_Exercises\Advance_git_Exercise
+
+
+Mode                 LastWriteTime         Length Name
+----                 -------------         ------ ----
+-a----          3/3/2025   1:29 PM              0 unwanted.txt
+
+
+PS C:\Users\USER\Desktop\Git_Exercises\Advance_git_Exercise> git add unwanted.txt  
+PS C:\Users\USER\Desktop\Git_Exercises\Advance_git_Exercise> git commit -m "Unwanted commit"
+[master cc16358] Unwanted commit
+ 1 file changed, 0 insertions(+), 0 deletions(-)
+ create mode 100644 unwanted.txt
+PS C:\Users\USER\Desktop\Git_Exercises\Advance_git_Exercise> git log
+commit cc163587e7cd21df3b929bbb98fb32e4776f716b (HEAD -> master)
+Author: kardara <abdoulayekardara@gmail.com>
+Date:   Mon Mar 3 13:29:39 2025 +0200
+
+    Unwanted commit
+
+commit 169c887c63c36f5bad057ac5088b9d9266cd06a3 (origin/master, origin/HEAD)
+Author: kardara <abdoulayekardara@gmail.com>
+Date:   Mon Mar 3 13:08:12 2025 +0200
+
+    last commit
+
+PS C:\Users\USER\Desktop\Git_Exercises\Advance_git_Exercise> git rebase -i HEAD~2
+Successfully rebased and updated refs/heads/master.
+PS C:\Users\USER\Desktop\Git_Exercises\Advance_git_Exercise> 
+```
 ### Challenge 7. Reordering Commits
 
 Challenge: Use `git rebase -i` to change the order of commits in your history.
