@@ -360,3 +360,6 @@ PS C:\Users\USER\Desktop\Git_Exercises\Advance_git_Exercise> git rebase -i HEAD~
 Successfully rebased and updated refs/heads/master.
 PS C:\Users\USER\Desktop\Git_Exercises\Advance_git_Exercise> 
 ```
+### Challenge 7. Reordering Commits
+
+Challenge: Use `git rebase -i` to change the order of commits in your history.
