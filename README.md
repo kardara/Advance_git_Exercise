@@ -167,3 +167,155 @@ commit ef0cac950e61caef08dfa237bd8bc6fb53fc2b9e (origin/master)
 Author: kardara <abdoulayekardara@gmail.com>
 Date:   Wed Feb 26 11:34:39 2025 +0200
 ```
+## Challenge 3. Keeping History Tidy - Squashing Commits
+ The commit "Create second file" should be merged into "Create initial file" for a cleaner history.
+
+```sh
+git log
+```
+Output:
+```sh
+commit 63f5020ebd458eefe0a1fb30caad9b03394874cd (HEAD -> master)
+Author: kardara <abdoulayekardara@gmail.com>
+Date:   Wed Feb 26 12:25:30 2025 +0200
+
+    Create another file
+
+commit 694932e0f805cef912d559db9f7999fd8137a9f2
+Author: kardara <abdoulayekardara@gmail.com>
+Date:   Wed Feb 26 12:15:40 2025 +0200
+
+    adding readme file
+```
+
+To squash commits:
+1. Run:
+   ```sh
+   git rebase -i HEAD~2
+   ```
+2. Change `pick` to `squash`:
+   ```sh
+   pick 694932e adding readme file
+   squash 63f5020 creating another file
+   ```
+3. Edit the commit message and save.
+
+Final log:
+```sh
+git log
+```
+Output:
+```sh
+commit 1a38fe332b33ba377635d90da7bb43038030c91c (HEAD -> master)
+Author: kardara <abdoulayekardara@gmail.com>
+Date:   Wed Feb 26 12:25:30 2025 +0200
+
+    adding readme.md
+
+commit 694932e0f805cef912d559db9f7999fd8137a9f2
+Author: kardara <abdoulayekardara@gmail.com>
+Date:   Wed Feb 26 12:15:40 2025 +0200
+
+    adding readme file
+```
+
+## Challenge 4. Splitting a Commit
+Imagine "Create test5 and test6 files" describes too much at once. so let's Separate them for better tracking with two different commit messages: "Create test5 File" and "Create test6 file".
+### 1. Let's check the log before spliiting
+```bash
+git log
+```
+Output:
+```bash
+uthor: kardara <abdoulayekardara@gmail.com>
+Date:   Mon Mar 3 11:42:38 2025 +0200
+
+    Create test5 and test6
+
+commit 60c2b1c0cd1721f7a402507bc5e66458054a446a (origin/master, origin/HEAD)
+Merge: 35bd99b abce601
+Author: kardara <abdoulayekardara@gmail.com>
+Date:   Wed Feb 26 12:41:33 2025 +0200
+```
+### 2. Reset the commit while keeping the changes
+```bash
+git reset HEAD~1
+```
+OutPut: 
+```bash
+PS C:\Users\USER\Desktop\Git_Exercises\Advance_git_Exercise> git reset HEAD~1
+Unstaged changes after reset:
+M       README.md
+PS C:\Users\USER\Desktop\Git_Exercises\Advance_git_Exercise>
+```
+### 3. Add and commit the third file separately
+```bash
+git add test5.md
+git commit -m "Create test5 File"
+```
+### 4. Add and commit the fourth file separately
+```bash
+git add test6.md
+git commit -m "Create test6 File"
+```
+### Now let's do git log and see after splitting
+```bash
+git log
+```
+OutPut: 
+```bash
+Author: kardara <abdoulayekardara@gmail.com>
+Date:   Mon Mar 3 11:51:21 2025 +0200
+
+    Create test6 File
+
+commit 231c36a17cbd5c0c2c861d3ba066a002872fb067
+Author: kardara <abdoulayekardara@gmail.com>
+Date:   Mon Mar 3 11:50:02 2025 +0200
+
+    Create test5 File
+```
+## Challenge 5. Advanced Squashing
+Let's combine the 2 last commits("Create test5 File" and "Create test6 File"). We can use the same steps as we did in challenge 3
+
+### 1. Let's check logs
+```bash
+git log
+```
+OutPut: 
+```bash
+Author: kardara <abdoulayekardara@gmail.com>
+Date:   Mon Mar 3 11:51:21 2025 +0200
+
+    Create test6 File
+
+commit 231c36a17cbd5c0c2c861d3ba066a002872fb067
+Author: kardara <abdoulayekardara@gmail.com>
+Date:   Mon Mar 3 11:50:02 2025 +0200
+
+    Create test5 File
+```
+### 2. Start an interactive rebase
+```bash
+git rebase -i HEAD~2
+```
+### 3. Change pick to squash for the second commit.
+
+### 4.Modify the commit message to "Create test5 and test6 files" and save.
+
+outPut: 
+```bash
+commit 1fda2798706b5c08d1bc3f24ae1a625aa7d28a8f (HEAD -> master)
+Author: kardara <abdoulayekardara@gmail.com>
+Date:   Mon Mar 3 11:50:02 2025 +0200
+
+    Create test5 and test6
+    
+    Create test5 File
+    
+    Create test6 File
+
+commit 60c2b1c0cd1721f7a402507bc5e66458054a446a (origin/master, origin/HEAD)
+Merge: 35bd99b abce601
+:
+```
