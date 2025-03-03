@@ -363,3 +363,38 @@ PS C:\Users\USER\Desktop\Git_Exercises\Advance_git_Exercise>
 ### Challenge 7. Reordering Commits
 
 Challenge: Use `git rebase -i` to change the order of commits in your history.
+1. Run: `git rebase -i HEAD~3`
+
+2. Change the order of the commits in the interactive editor by rearranging the lines.
+
+3. Save and close the editor.
+```bash
+PS C:\Users\USER\Desktop\Git_Exercises\Advance_git_Exercise> git log
+commit 8031df57acd349dc98d79b81472043db8c4e4e15 (HEAD -> master)
+Author: kardara <abdoulayekardara@gmail.com>
+Date:   Mon Mar 3 13:45:11 2025 +0200
+
+    Chore: adding readme file after challenge 6
+
+commit fcb5fdfa7c53ecd7f6550b2fc24cc23e92249a21
+Author: kardara <abdoulayekardara@gmail.com>
+Date:   Mon Mar 3 14:15:52 2025 +0200
+
+    this is a commit before reordering
+
+PS C:\Users\USER\Desktop\Git_Exercises\Advance_git_Exercise> git rebase -i HEAD~2
+PS C:\Users\USER\Desktop\Git_Exercises\Advance_git_Exercise> git log              
+commit 861d36da61ed8d823cffb665b0415d594b81cd60 (HEAD -> master)
+Author: kardara <abdoulayekardara@gmail.com>
+Date:   Mon Mar 3 14:15:52 2025 +0200
+
+    this is a commit before reordering
+
+commit ef6bfedfa600f94569cdf72eb830726215f0d9d2
+Author: kardara <abdoulayekardara@gmail.com>
+Date:   Mon Mar 3 13:45:11 2025 +0200
+
+    Chore: adding readme file after challenge 6
+
+:
+```
