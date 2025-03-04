@@ -847,3 +847,81 @@ git checkout <commit-hash>
 ```
 
 OUtPut:
+```bash
+gymubutwari@Ubutwaris-iMac Advance_git_Exercise % git log --oneline
+0ab17f4 (HEAD -> master, origin/master) adding the readme file after part 2 challenge 10
+f8c6b4a adding the readme file after part 2 challenge 10
+fdd64ea (ft/improved-branch-name) adding readme
+95e308c Updated project readme
+7315728 adding readme after challenge 10
+14a12e7 Merge branch 'master' of https://github.com/kardara/Advance_git_Exercise
+0b40aab adding readme after challenge 9
+51dfee7 adding readme after challenge 9
+e9052f2 adding readme after challenge 8
+3ddeeb3 Implemented test 5
+9f3cdfd (ft/branch) Implemented test 5
+d1d92fa Merge branch 'master' of https://github.com/kardara/Advance_git_Exercise
+e6d0e49 Chore: committing after challenge 7
+861d36d this is a commit before reordering
+ef6bfed Chore: adding readme file after challenge 6
+b9a8165 Chore: adding readme file after challenge 6
+169c887 last commit
+1fda279 Create test5 and test6
+60c2b1c Merge branch 'master' of https://github.com/kardara/Advance_git_Exercise
+35bd99b chore: last commit
+1a38fe3 adding readme.md
+gymubutwari@Ubutwaris-iMac Advance_git_Exercise % git status
+On branch master
+Your branch is up to date with 'origin/master'.
+
+nothing to commit, working tree clean
+gymubutwari@Ubutwaris-iMac Advance_git_Exercise % git checkout 35bd99b
+Note: checking out '35bd99b'.
+
+You are in 'detached HEAD' state. You can look around, make experimental
+changes and commit them, and you can discard any commits you make in this
+state without impacting any branches by performing another checkout.
+
+If you want to create a new branch to retain commits you create, you may
+do so (now or later) by using -b with the checkout command again. Example:
+
+  git checkout -b <new-branch-name>
+
+HEAD is now at 35bd99b... chore: last commit
+gymubutwari@Ubutwaris-iMac Advance_git_Exercise % git log --oneline   
+35bd99b (HEAD) chore: last commit
+1a38fe3 adding readme.md
+694932e adding readme file
+266646e Create another file
+ef0cac9 adding readme
+4fd309f Add missing test4.md file
+4075fbc chore: Create another file
+055454a chore: Create initial file
+gymubutwari@Ubutwaris-iMac Advance_git_Exercise % git checkout master 
+Previous HEAD position was 35bd99b... chore: last commit
+Switched to branch 'master'
+Your branch is up to date with 'origin/master'.
+gymubutwari@Ubutwaris-iMac Advance_git_Exercise % git log --oneline  
+0ab17f4 (HEAD -> master, origin/master) adding the readme file after part 2 challenge 10
+f8c6b4a adding the readme file after part 2 challenge 10
+fdd64ea (ft/improved-branch-name) adding readme
+95e308c Updated project readme
+7315728 adding readme after challenge 10
+14a12e7 Merge branch 'master' of https://github.com/kardara/Advance_git_Exercise
+0b40aab adding readme after challenge 9
+51dfee7 adding readme after challenge 9
+e9052f2 adding readme after challenge 8
+3ddeeb3 Implemented test 5
+9f3cdfd (ft/branch) Implemented test 5
+d1d92fa Merge branch 'master' of https://github.com/kardara/Advance_git_Exercise
+e6d0e49 Chore: committing after challenge 7
+861d36d this is a commit before reordering
+ef6bfed Chore: adding readme file after challenge 6
+b9a8165 Chore: adding readme file after challenge 6
+169c887 last commit
+1fda279 Create test5 and test6
+60c2b1c Merge branch 'master' of https://github.com/kardara/Advance_git_Exercise
+35bd99b chore: last commit
+1a38fe3 adding readme.md
+gymubutwari@Ubutwaris-iMac Advance_git_Exercise % 
+```
