@@ -512,3 +512,14 @@ ef0cac9 adding readme
 055454a chore: Create initial file
 gymubutwari@Ubutwaris-iMac Advance_git_Exercise % 
 ```
+## Cahllenge 7. Visualizing Commit History (Bonus)
+
+Challenge: Explore ways to visualize commit history.
+
+Use a graphical tool or command:
+`git log --graph `
+
+OutPut:
+```bash
+
+```
