@@ -629,3 +629,185 @@ d1d92fa HEAD@{9}: pull: Fast-forward
 605def7 HEAD@{19}: rebase -i: fast-forward
 266646e HEAD@{20}: rebase -i (start): checkout HEAD~2
 ```
+# Part 2: Branching Basics 
+## Challenge 1. Feature Branch Creation
+
+Solution:
+**Challenge:** Create a new branch named ft/new-feature and switch to that branch.
+```bash
+git checkout -b ft/new-feature
+```
+>This command creates a new branch and switches to it immediately, allowing isolated development.
+
+OutPut:
+```bash
+gymubutwari@Ubutwaris-iMac Advance_git_Exercise % git checkout -b ft/new-feature
+M       README.md
+Switched to a new branch 'ft/new-feature'
+gymubutwari@Ubutwaris-iMac Advance_git_Exercise % 
+```
+## Challenge 2. Working on the Feature Branch
+**Challenge:** Create a new file named `feature.txt` in this branch, add content, and commit it.
+
+Solution:
+```bash
+echo "This is the core functionality for the new feature." > feature.txt
+git add feature.txt
+git commit -m "Implemented core functionality for new feature"
+```
+> This ensures changes are tracked and saved with a meaningful commit message.
+
+OutPut:
+```bash
+gymubutwari@Ubutwaris-iMac Advance_git_Exercise % echo "This is the core functionality for the new feature." > feature.txt
+gymubutwari@Ubutwaris-iMac Advance_git_Exercise % git add feature.txt
+gymubutwari@Ubutwaris-iMac Advance_git_Exercise % git commit -m "Implemented core functionality for new feature"
+[ft/new-feature 234fc2d] Implemented core functionality for new feature
+ 1 file changed, 1 insertion(+)
+ create mode 100644 feature.txt
+gymubutwari@Ubutwaris-iMac Advance_git_Exercise % 
+```
+## Challenge 3. Switching Back and Making More Changes
+**Challenge:** Switch back to `master` and create a `readme.txt` file.
+
+Solution:
+```bash
+git checkout master
+echo "Project README" > readme.txt
+git add readme.txt
+git commit -m "Updated project readme"
+```
+OutPut:
+```bash
+gymubutwari@Ubutwaris-iMac Advance_git_Exercise % git checkout master
+
+M       README.md
+Switched to branch 'master'
+Your branch is up to date with 'origin/master'.
+gymubutwari@Ubutwaris-iMac Advance_git_Exercise % echo "Project README" > readme.txt
+
+gymubutwari@Ubutwaris-iMac Advance_git_Exercise % git add readme.txt
+gymubutwari@Ubutwaris-iMac Advance_git_Exercise % git commit -m "Updated project readme"
+[master 95e308c] Updated project readme
+ 1 file changed, 1 insertion(+)
+ create mode 100644 readme.txt
+gymubutwari@Ubutwaris-iMac Advance_git_Exercise % 
+```
+## Challenge 4. Local vs. Remote Branches
+**Challenge:** Research remote branches and push your local branch to a remote repository.
+
+Solution:
+```bash
+git push origin ft/new-feature
+```
+> This command pushes the local branch to the remote repository, making it accessible to others for collaboration and ensuring that work is backed up on a remote server.
+
+OutPut:
+```bash
+gymubutwari@Ubutwaris-iMac Advance_git_Exercise % git push origin ft/new-feature
+
+Counting objects: 3, done.
+Delta compression using up to 8 threads.
+Compressing objects: 100% (3/3), done.
+Writing objects: 100% (3/3), 341 bytes | 341.00 KiB/s, done.
+Total 3 (delta 1), reused 0 (delta 0)
+remote: Resolving deltas: 100% (1/1), completed with 1 local object.
+remote: 
+remote: Create a pull request for 'ft/new-feature' on GitHub by visiting:
+remote:      https://github.com/kardara/Advance_git_Exercise/pull/new/ft/new-feature
+remote: 
+To https://github.com/kardara/Advance_git_Exercise.git
+ * [new branch]      ft/new-feature -> ft/new-feature
+gymubutwari@Ubutwaris-iMac Advance_git_Exercise % 
+```
+## Challenge 5. Branch Deletion
+**Challenge:** Delete the `ft/new-feature` branch after merging it into `main`.
+
+Solution:
+```bash
+git branch -d ft/new-feature
+```
+
+> Using `-d` ensures the branch is deleted only if it has been fully merged. If you need to force deletion, use `-D` instead.
+
+OutPut:
+```bash
+gymubutwari@Ubutwaris-iMac Advance_git_Exercise % git branch -d ft/new-feature
+
+error: The branch 'ft/new-feature' is not fully merged.
+If you are sure you want to delete it, run 'git branch -D ft/new-feature'.
+gymubutwari@Ubutwaris-iMac Advance_git_Exercise % git branch -D ft/new-feature
+
+Deleted branch ft/new-feature (was 234fc2d).
+gymubutwari@Ubutwaris-iMac Advance_git_Exercise % 
+```
+
+## Challenge 6. Creating a Branch from a Commit
+**Challenge:** Create a branch from a commit two positions back.
+```bash
+git log --oneline  # Displays commit history in a condensed form to find the commit hash.
+git checkout -b ft/new-branch-from-commit <commit-hash> #Creates a new branch starting from a specific commit, useful for revisiting an earlier state of the project.
+```
+
+OutPut: 
+```bash
+gymubutwari@Ubutwaris-iMac Advance_git_Exercise % git log --oneline 
+95e308c (HEAD -> master) Updated project readme
+7315728 (origin/master) adding readme after challenge 10
+14a12e7 Merge branch 'master' of https://github.com/kardara/Advance_git_Exercise
+0b40aab adding readme after challenge 9
+51dfee7 adding readme after challenge 9
+e9052f2 adding readme after challenge 8
+3ddeeb3 Implemented test 5
+9f3cdfd (ft/branch) Implemented test 5
+d1d92fa Merge branch 'master' of https://github.com/kardara/Advance_git_Exercise
+e6d0e49 Chore: committing after challenge 7
+861d36d this is a commit before reordering
+ef6bfed Chore: adding readme file after challenge 6
+b9a8165 Chore: adding readme file after challenge 6
+169c887 last commit
+1fda279 Create test5 and test6
+60c2b1c Merge branch 'master' of https://github.com/kardara/Advance_git_Exercise
+35bd99b chore: last commit
+1a38fe3 adding readme.md
+694932e adding readme file
+266646e Create another file
+abce601 Update README.md
+gymubutwari@Ubutwaris-iMac Advance_git_Exercise % git checkout -b ft/new-branch-from-commit 95e308c
+M       README.md
+Switched to a new branch 'ft/new-branch-from-commit'
+gymubutwari@Ubutwaris-iMac Advance_git_Exercise % 
+```
+
+## Challenge 7. Branch Merging
+**Challenge:** Merge ft/new-branch-from-commit into main.
+
+Solution:
+```bash 
+git checkout master #Switches to the master branch to prepare for merging.
+git merge ft/new-branch-from-commit #Merges changes from ft/new-branch-from-commit into master, integrating updates.
+```
+OutPut:
+```bash
+gymubutwari@Ubutwaris-iMac Advance_git_Exercise % git checkout master
+M       README.md
+Switched to branch 'master'
+Your branch is ahead of 'origin/master' by 1 commit.
+  (use "git push" to publish your local commits)
+gymubutwari@Ubutwaris-iMac Advance_git_Exercise % git merge ft/new-branch-from-commit
+Already up to date.
+gymubutwari@Ubutwaris-iMac Advance_git_Exercise % 
+```
+## Challenge 7. Branch Rebasing
+**Challenge:** Rebase ft/new-branch-from-commit onto main.
+
+Solution:
+```bash
+git checkout ft/new-branch-from-commit #Switches to the branch to be rebased.
+git rebase master #Re-applies changes from ft/new-branch-from-commit on top of master, keeping the commit history linear.
+```
+
+OutPut:
+```bash
+
+```
