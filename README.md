@@ -360,7 +360,7 @@ PS C:\Users\USER\Desktop\Git_Exercises\Advance_git_Exercise> git rebase -i HEAD~
 Successfully rebased and updated refs/heads/master.
 PS C:\Users\USER\Desktop\Git_Exercises\Advance_git_Exercise> 
 ```
-### Challenge 6. Dropping a Commit:
+## Challenge 6. Dropping a Commit:
 
 We all make mistakes. Imagine needing to completely remove an unwanted commit from your history.
 
@@ -401,7 +401,7 @@ PS C:\Users\USER\Desktop\Git_Exercises\Advance_git_Exercise> git rebase -i HEAD~
 Successfully rebased and updated refs/heads/master.
 PS C:\Users\USER\Desktop\Git_Exercises\Advance_git_Exercise> 
 ```
-### Challenge 7. Reordering Commits
+## Challenge 7. Reordering Commits
 
 Challenge: Use `git rebase -i` to change the order of commits in your history.
 1. Run: `git rebase -i HEAD~3`
@@ -438,4 +438,77 @@ Date:   Mon Mar 3 13:45:11 2025 +0200
     Chore: adding readme file after challenge 6
 
 :
+```
+## Challenge 8. Cherry-Picking Commits
+
+**Challenge: Selectively bring a specific commit from another branch into your current branch.**
+
+1. **Create a new branch and add a new file:**
+   ```sh
+   git checkout -b ft/branch
+   touch test5.md
+   echo "Test 5 content" > test5.md
+   git add test5.md
+   git commit -m "Implemented test 5"
+   ```
+2. **Switch back to the main branch:**
+   ```sh
+   git checkout main
+   ```
+3. **Find the commit hash of the commit you want to cherry-pick:**
+   ```sh
+   git log ft/branch --oneline
+   ```
+4. **Copy the cammit-hash and do:**
+   ```sh
+   git cherry-pick <commit-hash>
+   ```
+Output: 
+```bash
+gymubutwari@Ubutwaris-iMac Advance_git_Exercise % git checkout master        
+Already on 'master'
+Your branch is up to date with 'origin/master'.
+gymubutwari@Ubutwaris-iMac Advance_git_Exercise % git log ft/branch --oneline
+9f3cdfd (ft/branch) Implemented test 5
+d1d92fa (HEAD -> master, origin/master) Merge branch 'master' of https://github.com/kardara/Advance_git_Exercise
+e6d0e49 Chore: committing after challenge 7
+861d36d this is a commit before reordering
+ef6bfed Chore: adding readme file after challenge 6
+b9a8165 Chore: adding readme file after challenge 6
+169c887 last commit
+1fda279 Create test5 and test6
+60c2b1c Merge branch 'master' of https://github.com/kardara/Advance_git_Exercise
+35bd99b chore: last commit
+1a38fe3 adding readme.md
+694932e adding readme file
+266646e Create another file
+abce601 Update README.md
+ef0cac9 adding readme
+4fd309f Add missing test4.md file
+4075fbc chore: Create another file
+055454a chore: Create initial file
+gymubutwari@Ubutwaris-iMac Advance_git_Exercise % git cherry-pick 9f3cdfd      
+[master 3ddeeb3] Implemented test 5
+ Date: Tue Mar 4 13:32:40 2025 +0200
+ 1 file changed, 1 insertion(+)
+gymubutwari@Ubutwaris-iMac Advance_git_Exercise % git log --oneline
+3ddeeb3 (HEAD -> master) Implemented test 5
+d1d92fa (origin/master) Merge branch 'master' of https://github.com/kardara/Advance_git_Exercise
+e6d0e49 Chore: committing after challenge 7
+861d36d this is a commit before reordering
+ef6bfed Chore: adding readme file after challenge 6
+b9a8165 Chore: adding readme file after challenge 6
+169c887 last commit
+1fda279 Create test5 and test6
+60c2b1c Merge branch 'master' of https://github.com/kardara/Advance_git_Exercise
+35bd99b chore: last commit
+1a38fe3 adding readme.md
+694932e adding readme file
+266646e Create another file
+abce601 Update README.md
+ef0cac9 adding readme
+4fd309f Add missing test4.md file
+4075fbc chore: Create another file
+055454a chore: Create initial file
+gymubutwari@Ubutwaris-iMac Advance_git_Exercise % 
 ```
