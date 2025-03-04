@@ -512,12 +512,10 @@ ef0cac9 adding readme
 055454a chore: Create initial file
 gymubutwari@Ubutwaris-iMac Advance_git_Exercise % 
 ```
-## Cahllenge 7. Visualizing Commit History (Bonus)
+## Cahllenge 9. Visualizing Commit History (Bonus)
+**Challenge**: Explore ways to visualize commit history.
 
-Challenge: Explore ways to visualize commit history.
-
-Use a graphical tool or command:
-`git log --graph `
+Use a graphical tool or command: `git log --graph` 
 
 or `git log --graph --oneline --all`
 
@@ -568,4 +566,66 @@ gymubutwari@Ubutwaris-iMac Advance_git_Exercise % git log --graph --oneline --al
 * | 266646e Create another file
 |/  
 :
+```
+## Cahllenge 10. Understanding Reflogs
+**Challenge:** Learn about `git reflog` to track Git operations history.
+
+**Solution:**
+
+- View the reflog:
+  ```sh
+  git reflog
+  ```
+- Use it to revert to a previous state if needed:
+  ```sh
+  git reset --hard <commit-hash>
+  ```
+Output: 
+```bash
+gymubutwari@Ubutwaris-iMac Advance_git_Exercise % git reflog
+0b40aab (HEAD -> master, origin/master) HEAD@{0}: commit: adding readme after challenge 9
+51dfee7 HEAD@{1}: commit: adding readme after challenge 9
+e9052f2 HEAD@{2}: commit: adding readme after challenge 8
+3ddeeb3 HEAD@{3}: cherry-pick: Implemented test 5
+d1d92fa HEAD@{4}: checkout: moving from master to master
+d1d92fa HEAD@{5}: checkout: moving from ft/branch to master
+9f3cdfd (ft/branch) HEAD@{6}: commit: Implemented test 5
+d1d92fa HEAD@{7}: checkout: moving from master to ft/branch
+d1d92fa HEAD@{8}: pull: Fast-forward
+60c2b1c HEAD@{9}: pull: Merge made by the 'recursive' strategy.
+35bd99b HEAD@{10}: commit: chore: last commit
+1a38fe3 HEAD@{11}: rebase -i (finish): returning to refs/heads/master
+1a38fe3 HEAD@{12}: rebase -i (reword): adding readme.md
+63f5020 HEAD@{13}: rebase -i: fast-forward
+694932e HEAD@{14}: rebase -i (start): checkout HEAD~2
+63f5020 HEAD@{15}: commit: creating another file
+694932e HEAD@{16}: rebase -i (finish): returning to refs/heads/master
+694932e HEAD@{17}: rebase -i (reword): adding readme file
+605def7 HEAD@{18}: rebase -i: fast-forward
+266646e HEAD@{19}: rebase -i (start): checkout HEAD~2
+605def7 HEAD@{20}: commit: adding something
+gymubutwari@Ubutwaris-iMac Advance_git_Exercise % git reset --hard 9f3cdfd      
+HEAD is now at 9f3cdfd Implemented test 5
+gymubutwari@Ubutwaris-iMac Advance_git_Exercise % git reflog              
+9f3cdfd (HEAD -> master, ft/branch) HEAD@{0}: reset: moving to 9f3cdfd
+0b40aab (origin/master) HEAD@{1}: commit: adding readme after challenge 9
+51dfee7 HEAD@{2}: commit: adding readme after challenge 9
+e9052f2 HEAD@{3}: commit: adding readme after challenge 8
+3ddeeb3 HEAD@{4}: cherry-pick: Implemented test 5
+d1d92fa HEAD@{5}: checkout: moving from master to master
+d1d92fa HEAD@{6}: checkout: moving from ft/branch to master
+9f3cdfd (HEAD -> master, ft/branch) HEAD@{7}: commit: Implemented test 5
+d1d92fa HEAD@{8}: checkout: moving from master to ft/branch
+d1d92fa HEAD@{9}: pull: Fast-forward
+60c2b1c HEAD@{10}: pull: Merge made by the 'recursive' strategy.
+35bd99b HEAD@{11}: commit: chore: last commit
+1a38fe3 HEAD@{12}: rebase -i (finish): returning to refs/heads/master
+1a38fe3 HEAD@{13}: rebase -i (reword): adding readme.md
+63f5020 HEAD@{14}: rebase -i: fast-forward
+694932e HEAD@{15}: rebase -i (start): checkout HEAD~2
+63f5020 HEAD@{16}: commit: creating another file
+694932e HEAD@{17}: rebase -i (finish): returning to refs/heads/master
+694932e HEAD@{18}: rebase -i (reword): adding readme file
+605def7 HEAD@{19}: rebase -i: fast-forward
+266646e HEAD@{20}: rebase -i (start): checkout HEAD~2
 ```
