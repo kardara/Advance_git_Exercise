@@ -798,7 +798,7 @@ gymubutwari@Ubutwaris-iMac Advance_git_Exercise % git merge ft/new-branch-from-c
 Already up to date.
 gymubutwari@Ubutwaris-iMac Advance_git_Exercise % 
 ```
-## Challenge 7. Branch Rebasing
+## Challenge 8. Branch Rebasing
 **Challenge:** Rebase ft/new-branch-from-commit onto main.
 
 Solution:
@@ -809,5 +809,31 @@ git rebase master #Re-applies changes from ft/new-branch-from-commit on top of m
 
 OutPut:
 ```bash
+gymubutwari@Ubutwaris-iMac Advance_git_Exercise % git checkout ft/new-branch-from-commit
+Switched to branch 'ft/new-branch-from-commit'
+gymubutwari@Ubutwaris-iMac Advance_git_Exercise % git rebase master                     
+First, rewinding head to replay your work on top of it...
+Fast-forwarded ft/new-branch-from-commit to master.
+gymubutwari@Ubutwaris-iMac Advance_git_Exercise % 
+```
+## Challenge 9. Renaming Branches
+**Challenge:** Rename ft/new-branch-from-commit to ft/improved-branch-name.
 
+Solution:
+```bash
+git branch -m ft/new-branch-from-commit ft/improved-branch-name
+```
+
+OutPut:
+```bash
+gymubutwari@Ubutwaris-iMac Advance_git_Exercise % git branch                                                     
+  ft/branch
+* ft/new-branch-from-commit
+  master
+gymubutwari@Ubutwaris-iMac Advance_git_Exercise % git branch -m ft/new-branch-from-commit ft/improved-branch-name
+gymubutwari@Ubutwaris-iMac Advance_git_Exercise % git branch                                                     
+  ft/branch
+* ft/improved-branch-name
+  master
+gymubutwari@Ubutwaris-iMac Advance_git_Exercise % 
 ```
