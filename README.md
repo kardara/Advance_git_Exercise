@@ -837,3 +837,13 @@ gymubutwari@Ubutwaris-iMac Advance_git_Exercise % git branch
   master
 gymubutwari@Ubutwaris-iMac Advance_git_Exercise % 
 ```
+## Challenge 10. Checking Out Detached HEAD
+**Challenge:** Detach HEAD to inspect a previous commit.
+
+Solution:
+```bash
+git log --oneline # to check the commit history and get the commit-has
+git checkout <commit-hash>
+```
+
+OUtPut:
