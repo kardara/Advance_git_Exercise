@@ -519,7 +519,53 @@ Challenge: Explore ways to visualize commit history.
 Use a graphical tool or command:
 `git log --graph `
 
+or `git log --graph --oneline --all`
+
 OutPut:
 ```bash
-
+gymubutwari@Ubutwaris-iMac Advance_git_Exercise % git log --graph
+* commit e9052f2f31eac3aa5073f8a3e43e7d9c4d98ee3c (HEAD -> master, origin/master)
+| Author: kardara <abdoulayekardara@gmail.com>
+| Date:   Tue Mar 4 13:53:56 2025 +0200
+| 
+|     adding readme after challenge 8
+| 
+* commit 3ddeeb31acbb27aa3f2c454a5b9d192727e345f2
+| Author: kardara <abdoulayekardara@gmail.com>
+| Date:   Tue Mar 4 13:32:40 2025 +0200
+| 
+|     Implemented test 5
+|   
+*   commit d1d92fa07e4e9364816e2e06894df28cf8695fbe
+|\  Merge: e6d0e49 b9a8165
+| | Author: kardara <abdoulayekardara@gmail.com>
+| | Date:   Mon Mar 3 14:34:52 2025 +0200
+| | 
+| |     Merge branch 'master' of https://github.com/kardara/Advance_git_Exercise
+| | 
+| * commit b9a81650fbb25d3232a84730ac339d5a369e3782
+| | Author: kardara <abdoulayekardara@gmail.com>
+gymubutwari@Ubutwaris-iMac Advance_git_Exercise % git log --graph --oneline --all
+* e9052f2 (HEAD -> master, origin/master) adding readme after challenge 8
+* 3ddeeb3 Implemented test 5
+| * 9f3cdfd (ft/branch) Implemented test 5
+|/  
+*   d1d92fa Merge branch 'master' of https://github.com/kardara/Advance_git_Exercise
+|\  
+| * b9a8165 Chore: adding readme file after challenge 6
+* | e6d0e49 Chore: committing after challenge 7
+* | 861d36d this is a commit before reordering
+* | ef6bfed Chore: adding readme file after challenge 6
+|/  
+* 169c887 last commit
+* 1fda279 Create test5 and test6
+*   60c2b1c Merge branch 'master' of https://github.com/kardara/Advance_git_Exercise
+|\  
+| * abce601 Update README.md
+* | 35bd99b chore: last commit
+* | 1a38fe3 adding readme.md
+* | 694932e adding readme file
+* | 266646e Create another file
+|/  
+:
 ```
