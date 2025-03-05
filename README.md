@@ -925,3 +925,42 @@ b9a8165 Chore: adding readme file after challenge 6
 1a38fe3 adding readme.md
 gymubutwari@Ubutwaris-iMac Advance_git_Exercise % 
 ```
+
+# Part 3. Advanced Workflows
+### Cahllenge 1. Stashing Changes
+**Scenario**:
+You're working on some changes in the main branch but need to attend to something urgent. You don't want to lose your uncommitted work.
+
+Solution:
+```sh
+git stash #This temporarily saves your changes, allowing you to return to them later.
+```
+OutPut: 
+```sh
+PS C:\Users\USER\Desktop\Git_Exercises\Advance_git_Exercise> git stash
+Saved working directory and index state WIP on master: f6c442e adding the readme file after finishing  part 2 challenge 10
+PS C:\Users\USER\Desktop\Git_Exercises\Advance_git_Exercise>
+```
+### Challenge 2. Retrieving Stashed Changes
+**Scenario**:
+You need to retrieve your stashed changes and continue working.
+
+**Solution**:
+```sh
+git stash pop #This applies the most recent stash and removes it from the stash list.
+```
+OutPut: 
+```sh
+PS C:\Users\USER\Desktop\Git_Exercises\Advance_git_Exercise> git stash pop
+On branch master
+Your branch is up to date with 'origin/master'.
+
+Changes not staged for commit:
+  (use "git add <file>..." to update what will be committed)
+  (use "git restore <file>..." to discard changes in working directory)
+        modified:   README.md
+
+no changes added to commit (use "git add" and/or "git commit -a")
+Dropped refs/stash@{0} (cf211f529db485083b2e257ab387c5d7683cd40b)
+PS C:\Users\USER\Desktop\Git_Exercises\Advance_git_Exercise>
+```
