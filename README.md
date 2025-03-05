@@ -966,8 +966,6 @@ PS C:\Users\USER\Desktop\Git_Exercises\Advance_git_Exercise>
 ```
 
 ### Challenge 3. Branch Merging Conflicts
-**Description**:
-Simulate a merge conflict by making conflicting changes in different branches, then manually resolve the conflicts.
 
 **Scenario**:
 You have conflicting changes in the main branch and a feature branch.
@@ -1030,9 +1028,7 @@ PS C:\Users\USER\Desktop\Git_Exercises\Advance_git_Exercise> git add file.txt
 [master 4af13a7] Resolved merge conflict
 PS C:\Users\USER\Desktop\Git_Exercises\Advance_git_Exercise> 
 ```
-### Challenge 3.Resolving Merge Conflicts with a Merge Tool
-**Description**:
-Use `git mergetool` to visualize and simplify the process of resolving merge conflicts.
+### Challenge 4. Resolving Merge Conflicts with a Merge Tool
 
 **Scenario**:
 Using `git mergetool` to resolve conflicts.
@@ -1043,4 +1039,55 @@ git mergetool #This opens the configured merge tool to help resolve conflicts vi
 ```
 As i do not have anything to be merge, I got `No files need merging` as output.
 
+### Challenge 5. Understanding Detached HEAD State
+**Scenario**:
+Checking out a previous commit detaches the HEAD.
 
+**Solution**:
+```sh
+git checkout <commit-hash>
+```
+To recover:
+```sh
+git checkout master
+```
+OutPut: 
+```sh
+PS C:\Users\USER\Desktop\Git_Exercises\Advance_git_Exercise> git log --oneline
+c37e624 (HEAD -> master, origin/master, origin/HEAD) Chore: Pushing after part 3 challenge 4
+4af13a7 Resolved merge conflict
+f62ba92 Updated file.txt in main
+2bd895c (feature-branch) Updated file.txt in feature-branch
+b7cae05 Updated file.txt in feature-branch
+18bbd3a Updated file.txt in master
+2edc94a Chore: Pushing after part 3 challenge 2
+f6c442e adding the readme file after finishing  part 2 challenge 10
+0ab17f4 adding the readme file after part 2 challenge 10
+f8c6b4a adding the readme file after part 2 challenge 10
+fdd64ea adding readme
+95e308c Updated project readme
+PS C:\Users\USER\Desktop\Git_Exercises\Advance_git_Exercise> git checkout fdd64ea
+Note: switching to 'fdd64ea'.
+
+You are in 'detached HEAD' state. You can look around, make experimental
+changes and commit them, and you can discard any commits you make in this
+state without impacting any branches by switching back to a branch.
+
+If you want to create a new branch to retain commits you create, you may
+do so (now or later) by using -c with the switch command. Example:
+
+  git switch -c <new-branch-name>
+
+Or undo this operation with:
+
+  git switch -
+
+Turn off this advice by setting config variable advice.detachedHead to false
+
+HEAD is now at fdd64ea adding readme
+PS C:\Users\USER\Desktop\Git_Exercises\Advance_git_Exercise> git checkout master 
+Previous HEAD position was fdd64ea adding readme
+Switched to branch 'master'
+Your branch is up to date with 'origin/master'.
+PS C:\Users\USER\Desktop\Git_Exercises\Advance_git_Exercise> 
+```
