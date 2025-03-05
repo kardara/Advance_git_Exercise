@@ -964,3 +964,83 @@ no changes added to commit (use "git add" and/or "git commit -a")
 Dropped refs/stash@{0} (cf211f529db485083b2e257ab387c5d7683cd40b)
 PS C:\Users\USER\Desktop\Git_Exercises\Advance_git_Exercise>
 ```
+
+### Challenge 3. Branch Merging Conflicts
+**Description**:
+Simulate a merge conflict by making conflicting changes in different branches, then manually resolve the conflicts.
+
+**Scenario**:
+You have conflicting changes in the main branch and a feature branch.
+
+**Solution**:
+##### 1. Create a new feature branch:
+```sh
+git checkout -b feature-branch
+```
+##### 2. Modify a file and commit:
+```sh
+echo "Feature branch change" >> file.txt
+git add file.txt
+git commit -m "Updated file.txt in feature-branch"
+```
+##### 3. Switch back to master and modify the same file:
+```sh
+git checkout master
+echo "Main branch change" >> file.txt
+git add file.txt
+git commit -m "Updated file.txt in main"
+```
+##### 4. Merge the feature branch:
+```sh
+git merge feature-branch
+```
+##### 5. Git will report a conflict. Open the file in a text editor and manually resolve it.
+
+##### 6.After resolving, add and commit the changes:
+```sh
+git add file.txt
+git commit -m "Resolved merge conflict"
+```
+
+OutPut: 
+```sh
+PS C:\Users\USER\Desktop\Git_Exercises\Advance_git_Exercise> git checkout -b feature-branch
+Switched to a new branch 'feature-branch'
+PS C:\Users\USER\Desktop\Git_Exercises\Advance_git_Exercise> echo "Feature branch change" >> file.txt
+>> git add file.txt
+>> git commit -m "Updated file.txt in feature-branch"
+[feature-branch 2bd895c] Updated file.txt in feature-branch
+ 1 file changed, 0 insertions(+), 0 deletions(-)
+PS C:\Users\USER\Desktop\Git_Exercises\Advance_git_Exercise> git checkout master
+>> echo "Main branch change" >> file.txt
+>> git add file.txt
+>> git commit -m "Updated file.txt in main"
+Switched to branch 'master'
+Your branch is ahead of 'origin/master' by 2 commits.
+  (use "git push" to publish your local commits)
+[master f62ba92] Updated file.txt in main
+ 1 file changed, 0 insertions(+), 0 deletions(-)
+PS C:\Users\USER\Desktop\Git_Exercises\Advance_git_Exercise> git merge feature-branch
+warning: Cannot merge binary files: file.txt (HEAD vs. feature-branch)
+Auto-merging file.txt
+CONFLICT (content): Merge conflict in file.txt
+Automatic merge failed; fix conflicts and then commit the result.
+PS C:\Users\USER\Desktop\Git_Exercises\Advance_git_Exercise> git add file.txt
+>> git commit -m "Resolved merge conflict"
+[master 4af13a7] Resolved merge conflict
+PS C:\Users\USER\Desktop\Git_Exercises\Advance_git_Exercise> 
+```
+### Challenge 3.Resolving Merge Conflicts with a Merge Tool
+**Description**:
+Use `git mergetool` to visualize and simplify the process of resolving merge conflicts.
+
+**Scenario**:
+Using `git mergetool` to resolve conflicts.
+
+**Solution**:
+```sh
+git mergetool #This opens the configured merge tool to help resolve conflicts visually.
+```
+As i do not have anything to be merge, I got `No files need merging` as output.
+
+
