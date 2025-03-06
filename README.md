@@ -1144,4 +1144,33 @@ Deleted tag 'v1.0' (was 398af3e)
 gymubutwari@Ubutwaris-iMac Advance_git_Exercise % 
 ```
 
-### Challenge 9. 
+### Challenge 9. Pushing Local Work to Remote
+**Scenario**:
+Pushing changes to a remote repository.
+
+**Solution**:
+```sh
+git push origin master
+```
+But before pushing, we need to make sure that we added everything and committed the changes.
+
+Output:
+```sh
+gymubutwari@Ubutwaris-iMac Advance_git_Exercise % git add README.md 
+gymubutwari@Ubutwaris-iMac Advance_git_Exercise % git commit -m "Chore: adding readme after part 3 challenge 9"
+[master 0c16eb2] Chore: adding readme after part 3 challenge 9
+ 1 file changed, 54 insertions(+)
+gymubutwari@Ubutwaris-iMac Advance_git_Exercise % git push origin master
+
+Counting objects: 6, done.
+Delta compression using up to 8 threads.
+Compressing objects: 100% (5/5), done.
+Writing objects: 100% (6/6), 1017 bytes | 1017.00 KiB/s, done.
+Total 6 (delta 3), reused 0 (delta 0)
+remote: Resolving deltas: 100% (3/3), completed with 2 local objects.
+To https://github.com/kardara/Advance_git_Exercise.git
+   f5952df..0c16eb2  master -> master
+gymubutwari@Ubutwaris-iMac Advance_git_Exercise % 
+```
+
+### Challenge 10. 
