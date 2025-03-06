@@ -1091,3 +1091,57 @@ Switched to branch 'master'
 Your branch is up to date with 'origin/master'.
 PS C:\Users\USER\Desktop\Git_Exercises\Advance_git_Exercise> 
 ```
+### Challenge 6. Ignoring Files/Directories
+**Scenario**:
+Excluding temporary files from Git tracking.
+
+**Solution**:
+1. Create a .gitignore file and add:
+
+```sh
+/tmp
+```
+2. Then commit the changes:
+```sh
+git add .gitignore
+git commit -m "Added .gitignore to exclude /tmp"
+```
+OutPut:
+```sh
+gymubutwari@Ubutwaris-iMac Advance_git_Exercise % git add .gitignore
+gymubutwari@Ubutwaris-iMac Advance_git_Exercise % git commit -m "Added .gitignore to exclude /tmp"
+[master 398af3e] Added .gitignore to exclude /tmp
+ 1 file changed, 1 insertion(+)
+ create mode 100644 .gitignore
+gymubutwari@Ubutwaris-iMac Advance_git_Exercise % 
+```
+### Challenge 7.Working with Tags
+
+**Scenario**:
+Tagging a specific commit.
+
+**Solution**:
+```sh
+git tag v1.0
+```
+
+### Challenge 8. Listing and Deleting Tags
+**Solution**:
+1. List tags:
+```sh
+git tag
+```
+2. Delete a tag:
+```sh
+git tag -d v1.0
+```
+OutPut: 
+```sh
+gymubutwari@Ubutwaris-iMac Advance_git_Exercise % git tag     
+v1.0
+gymubutwari@Ubutwaris-iMac Advance_git_Exercise % git tag -d v1.0
+Deleted tag 'v1.0' (was 398af3e)
+gymubutwari@Ubutwaris-iMac Advance_git_Exercise % 
+```
+
+### Challenge 9. 
